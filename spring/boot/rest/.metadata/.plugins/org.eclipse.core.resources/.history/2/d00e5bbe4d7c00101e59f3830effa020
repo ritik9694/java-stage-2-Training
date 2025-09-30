@@ -1,0 +1,5 @@
+package com.cognizant.irctc.controller;
+
+public class TicketController {
+
+}

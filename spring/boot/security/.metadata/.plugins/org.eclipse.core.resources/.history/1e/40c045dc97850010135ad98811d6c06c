@@ -1,0 +1,18 @@
+package com.cognizant.security.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.security.model.Users;
+import com.cognizant.security.repo.MyUserRepositry;
+
+@Service
+public class UsersService {
+
+	@Autowired
+	private MyUserRepositry myUserRepositry;
+	
+	public Users register(Users users) {
+		return myUserRepositry.save(users);
+	}
+}

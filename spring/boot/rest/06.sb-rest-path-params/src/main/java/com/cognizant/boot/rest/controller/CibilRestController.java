@@ -1,0 +1,28 @@
+package com.cognizant.boot.rest.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.websocket.server.PathParam;
+
+@RestController
+@RequestMapping("/cibil")
+public class CibilRestController {
+
+	//@GetMapping(path = "/score/{name}/{pan}")
+	@GetMapping(path = "/{name}/{pan}/score")
+	//@GetMapping("/score")
+	public ResponseEntity<?> findCibilScore(@PathVariable("name") String name,
+			                               @PathVariable(value = "pan") String pan){
+		if(pan != null && pan.length()==10) {
+			int score = 979;
+			String msg = String.format("Hi %s, your PAN is %s, & Your CIBIL SCORE %d",name,pan, score);
+			return ResponseEntity.ok().body(msg);
+		}
+		return ResponseEntity.badRequest().body("Please provide A valid PAN");
+	}
+}

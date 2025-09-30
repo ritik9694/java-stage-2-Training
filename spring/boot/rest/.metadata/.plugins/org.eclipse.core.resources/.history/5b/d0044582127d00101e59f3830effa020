@@ -1,0 +1,79 @@
+package com.cognizant.irctc.service;
+
+import java.time.LocalDate;
+import java.util.Optional;
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.irctc.entities.Ticket;
+import com.cognizant.irctc.models.Passenger;
+import com.cognizant.irctc.repository.TicketRepository;
+import com.cognizant.irctc.utility.PNRGenerator;
+
+@Service
+public class TicketServicesImpl implements TicketServices {
+
+
+	private TicketRepository ticketRepo;
+	private PNRGenerator pnrGen;
+	
+	@Autowired
+	public TicketServicesImpl(TicketRepository ticketRepo, PNRGenerator pnrGen) {
+		super();
+		this.ticketRepo = ticketRepo;
+		this.pnrGen = pnrGen;
+	}
+
+	@Override
+	public Ticket newBooking(Passenger passenger) {
+		Ticket ticket = new Ticket();
+		ticket.setPassengerName(passenger.getPassengerName());
+		ticket.setFromStation(passenger.getFromStation());
+		ticket.setToStation(passenger.getToStation());
+		ticket.setDateOfJourney(passenger.getDateOfJourney());
+		ticket.setTrainNo(passenger.getTrainNo());
+		
+		String ticketStatus = new Random().nextBoolean() ? "CONFIRMED" : "WAITING";
+		ticket.setBookingStatus(ticketStatus);
+		
+		ticket.setDateOfBooking(LocalDate.now());
+		
+		float fare = new Random().nextFloat(1000,3000);
+		float roundedValue = Math.round(fare * 100.0f) / 100.0f;
+		ticket.setTicketFare(roundedValue);
+		
+		String pnr = pnrGen.generatePNR();
+		ticket.setPnr(pnr);
+		
+		Ticket bookedTicket=ticketRepo.save(ticket);
+		return bookedTicket;
+	}
+
+	@Override
+	public Ticket getTicketByPnr(String pnr) {
+		Optional<Ticket> optTicket=ticketRepo.findById(pnr);
+		if(optTicket.isPresent()) {
+			return optTicket.get();
+		}
+		return null;
+	}
+
+	@Override
+	public Ticket updateTicket(String pnr, Passenger passenger) {
+		
+		return null;
+	}
+
+	@Override
+	public boolean cancelTicket(String pnr) {
+		boolean ticketExist = ticketRepo.existsById(pnr);
+		if(ticketExist) {
+			ticketRepo.deleteById(pnr);
+			return true;
+		}
+		return false;
+	}
+
+}

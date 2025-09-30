@@ -1,0 +1,5 @@
+package com.cognizant.book.exception.controller;
+
+public class GlobalExceptionHandler {
+
+}

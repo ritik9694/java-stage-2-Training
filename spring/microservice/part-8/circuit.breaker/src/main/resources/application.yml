@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: circuit.breaker
+message: Welcome to Cognizant
+contactDetails:
+  name: Sunil Joseph - Developer
+  email: sunil@cognizant.com
+onCallSupport:
+- (40) 238-41700
+- (40) 238-41701

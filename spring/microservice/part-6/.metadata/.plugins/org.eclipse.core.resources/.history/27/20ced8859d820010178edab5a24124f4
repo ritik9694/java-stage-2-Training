@@ -1,0 +1,8 @@
+package com.cognizant.loans.audit;
+
+import org.springframework.stereotype.Component;
+
+@Component("auditAwareImpl")
+public class AuditAwareImpl {
+
+}

@@ -1,0 +1,37 @@
+package com.cognizant.loans.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cognizant.loans.dto.LoansDto;
+import com.cognizant.loans.repositry.LoansRepositry;
+
+public class LoansServiceImp implements LoansService {
+	
+	@Autowired
+	private LoansRepositry loansRepositry;
+
+	@Override
+	public void createLoan(String mobileNumber) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public LoansDto fetchLoan(String Number) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateLoan(LoansDto loansDto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteLoan(String mobileNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,96 @@
+package com.cognizant.accounts.service;
+
+import java.util.Optional;
+import java.util.Random;
+
+import org.springframework.stereotype.Service;
+
+import com.cognizant.accounts.dto.AccountsDto;
+import com.cognizant.accounts.dto.CustomerDto;
+import com.cognizant.accounts.entity.Accounts;
+import com.cognizant.accounts.entity.Customer;
+import com.cognizant.accounts.mapper.AccountsMapper;
+import com.cognizant.accounts.mapper.CustomerMapper;
+import com.cognizant.accounts.repositry.AccountsRepositry;
+import com.cognizant.accounts.repositry.CustomerRepositry;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class AccountServiceImpl implements AccountsService {
+
+	private AccountsRepositry accountsRepositry;
+	private CustomerRepositry customerRepositry;
+	
+	@Override
+	public void createAccount(CustomerDto customerDto) {
+		Optional<Customer> optionalCust = customerRepositry.findByMobileNumber(customerDto.getMobileNumber());
+		if(optionalCust.isPresent()) {
+			throw new CustomerAlreadyExistsException("Customer alreadyregistered with given mobileNumber " + customerDto.getMobileNumber())
+		}
+
+		Customer customer = CustomerMapper.mapToCustomer(customerDto, new Customer());
+		Customer savedCustomer = customerRepositry.save(customer);
+		
+		accountsRepositry.save(createNewAccount(savedCustomer));
+		
+	}
+	
+	private Accounts createNewAccount(Customer customer) {
+		Accounts newAccount = new Accounts();
+		newAccount.setCustomerId(customer.getCustomerId());
+		long randomAccNumber = 1000000000L + new Random().nextInt(900000000);
+
+		newAccount.setAccountNumber(randomAccNumber);
+		newAccount.setAccountType("Savings Account");
+		newAccount.setBranchAddress("Gachibowli, Hyderabad, Telangana");
+		return newAccount;
+	}
+
+	@Override
+	public CustomerDto fetchAccount(String mobileNumber) {
+		 Customer customer = customerRepositry.findByMobileNumber(mobileNumber).orElseThrow(
+	                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+	        );
+	        Accounts accounts = accountsRepositry.findByCustomerId(customer.getCustomerId()).orElseThrow(
+	                () -> new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString())
+	        );
+	        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+	        customerDto.setAccountDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+	        return customerDto;
+	}
+
+	@Override
+	public boolean updateAccount(CustomerDto customerDto) {
+		 boolean isUpdated = false;
+	        AccountsDto accountsDto = customerDto.getAccountDto();
+	        if(accountsDto !=null ){
+	            Accounts accounts = accountsRepositry.findById(accountsDto.getAccountNumber()).orElseThrow(
+	                    () -> new ResourceNotFoundException("Account", "AccountNumber", accountsDto.getAccountNumber().toString())
+	            );
+	            AccountMapper.mapToAccounts(accountsDto, accounts);
+	            accounts = accountRepo.save(accounts);
+
+	            Long customerId = accounts.getCustomerId();
+	            Customer customer = customerRepo.findById(customerId).orElseThrow(
+	                    () -> new ResourceNotFoundException("Customer", "CustomerID", customerId.toString())
+	            );
+	            CustomerMapper.mapToCustomer(customerDto,customer);
+	            customerRepo.save(customer);
+	            isUpdated = true;
+	        }
+	        return  isUpdated;
+	}
+
+	@Override
+	public boolean deleteAccount(String mobileNumber) {
+		 Customer customer = customerRepo.findByMobileNumber(mobileNumber).orElseThrow(
+	                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+	        );
+	        accountRepo.deleteByCustomerId(customer.getCustomerId());
+	        customerRepo.deleteById(customer.getCustomerId());
+	        return true;
+	}
+
+}

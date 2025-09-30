@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.cognizant.security.model.UserDetails.java&apos; to &apos;MyUserDetails.java&apos;&#x0D;&#x0A;- Original project: &apos;04.sb-security-Jpa&apos;&#x0D;&#x0A;- Original element: &apos;com.cognizant.security.model.UserDetails.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.cognizant.security.model.MyUserDetails.java&apos;" description="Rename compilation unit &apos;UserDetails.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cognizant.security.model{UserDetails.java" name="MyUserDetails.java" references="false" stamp="1756536908396" version="1.0"/>
+</session>

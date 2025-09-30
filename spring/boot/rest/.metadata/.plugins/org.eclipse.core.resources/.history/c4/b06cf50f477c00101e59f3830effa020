@@ -1,0 +1,5 @@
+package com.cognizant.book.entity;
+
+public class ApiError {
+
+}

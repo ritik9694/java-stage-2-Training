@@ -1,0 +1,11 @@
+package com.cognizant.loans.entity;
+
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+@Getter 
+@Setter 
+@ToString
+public clas
+public class BaseEntity {
+
+}

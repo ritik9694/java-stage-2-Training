@@ -1,0 +1,5 @@
+package com.cognizant.irctc.entities;
+
+public class Ticket {
+
+}

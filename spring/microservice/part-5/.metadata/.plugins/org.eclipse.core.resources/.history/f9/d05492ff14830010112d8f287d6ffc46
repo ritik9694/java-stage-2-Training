@@ -1,0 +1,13 @@
+package com.cognizant.accounts.service;
+
+import com.cognizant.accounts.dto.CustomerDetailsDto;
+
+public class CustomersServiceImpl implements CustomersService {
+
+	@Override
+	public CustomerDetailsDto fetchCustomerDetails(String mobileNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,8 @@
+package com.cognizant.gatewayserver.dto;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "accounts")
+public class AccountsContactInfoDto {
+
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="lombok.ToString"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="com.cognizant.loans.entity.BaseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.AuditorAware"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.openfeign.EnableFeignClients"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.openfeign.FeignClient"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="java.awt.PageAttributes.MediaType"/>
+    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+    <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.repositry.AccountsRepositry"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.repositry.CustomerRepositry"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.service.client.CardsFeignClient"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.service.client.LoansFeignClient"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.entity.Accounts"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.exception.ResourceNotFoundException"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.entity.Customer"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.mapper.AccountsMapper"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.dto.AccountsDto"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.dto.LoansDto"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.dto.CardsDto"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.mapper.CustomerMapper"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.service.CustomersDetailsService"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.controller.CustomerController"/>
+    <fullyQualifiedTypeName name="com.cognizant.accounts.dto.CustomerDetailsDto"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.apache.hc.core5.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.apache.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+</qualifiedTypeNameHistroy>

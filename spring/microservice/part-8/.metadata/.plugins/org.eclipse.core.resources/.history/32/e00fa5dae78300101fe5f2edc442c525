@@ -1,0 +1,12 @@
+spring.application.name=circuit.breaker
+
+accounts.message=Welcome to Cognizant
+accounts.contactDetails.name=Hrithik - Developer
+accounts.contactDetails.email=hrihik@cognizant.com
+accounts.onCallSupport[0]=(40) 238-41700
+accounts.onCallSupport[1]=(40) 238-41701
+
+resilience4j.circuitbreaker.configs.default.slidingWindowSize= 10
+resilience4j.circuitbreaker.configs.default.failureRateThreshold= 50
+resilience4j.circuitbreaker.configs.default.waitDurationInOpenState: 10000
+resilience4j.circuitbreaker.configs.default.permittedNumberOfCallsInHalfOpenState= 2

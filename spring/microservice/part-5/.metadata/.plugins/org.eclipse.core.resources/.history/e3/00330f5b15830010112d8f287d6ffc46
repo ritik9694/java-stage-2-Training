@@ -1,0 +1,27 @@
+package com.cognizant.accounts.service;
+
+import org.springframework.stereotype.Service;
+
+import com.cognizant.accounts.dto.CustomerDetailsDto;
+import com.cognizant.accounts.repositry.AccountsRepositry;
+import com.cognizant.accounts.repositry.CustomerRepositry;
+import com.cognizant.accounts.service.client.CardsFeignClient;
+import com.cognizant.accounts.service.client.LoansFeignClient;
+
+@Service
+public class CustomersDetailsServiceImpl implements CustomersDetailsService {
+
+	private AccountsRepositry accountsRepositry;
+	private CustomerRepositry customerRepositry;
+	
+	private CardsFeignClient cardsFeignClient;
+	private LoansFeignClient loansFeignClient;
+	
+	
+	@Override
+	public CustomerDetailsDto fetchCustomerDetails(String mobileNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

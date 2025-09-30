@@ -1,0 +1,5 @@
+package com.cognizant.loans.exception;
+
+public class LoanAlreadyExistsException {
+
+}

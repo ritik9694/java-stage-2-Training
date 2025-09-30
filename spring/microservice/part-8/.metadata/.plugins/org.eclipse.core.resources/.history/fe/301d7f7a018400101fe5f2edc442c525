@@ -1,0 +1,5 @@
+package com.cognizant.gatewayserver.controller;
+
+public class CustomerController {
+
+}

@@ -1,0 +1,15 @@
+package com.cognizant.cards.service;
+
+import com.cognizant.cards.dto.CardsDto;
+
+public interface CardsService {
+	
+	String createCard(String mobileNumber);
+	
+	CardsDto fetchCard(String mobileNumber);
+	
+	boolean updateDetails(CardsDto cardsDto);
+	
+	boolean deleteDetails(String mobileNumber);
+
+}

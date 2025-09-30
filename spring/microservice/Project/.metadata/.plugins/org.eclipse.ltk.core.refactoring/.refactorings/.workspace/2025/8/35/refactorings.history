@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy Project &apos;resturant-service&apos;" description="Copy Project &apos;resturant-service&apos;" destination="C:/java stage 2/spring/microservice/Project" element="/resturant-service" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="swiggy-app" stamp="1756460214315"/>
+</session>

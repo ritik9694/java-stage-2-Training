@@ -1,0 +1,21 @@
+package com.cognizant.book.entity;
+
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Book {
+	
+	private int bookId;
+	private String bookAuthor;
+	private String  bookTitle;
+	private String bookPrice;
+	
+	private LocalDate localDate;
+
+}

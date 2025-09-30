@@ -1,0 +1,5 @@
+package com.cognizant.irctc.utility;
+
+public class PNRGenerator {
+
+}

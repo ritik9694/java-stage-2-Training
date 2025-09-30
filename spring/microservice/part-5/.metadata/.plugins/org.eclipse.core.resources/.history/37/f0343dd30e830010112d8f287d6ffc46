@@ -1,0 +1,11 @@
+spring.application.name=accounts
+
+eureka.instance.preferIpAddress: true
+eureka.instance.prefer-ip-address: true
+eureka.client.fetchRegistry: true
+eureka.client.registerWithEureka: true
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+info.app.name=accounts
+info.app.description=CTS Bank Accounts Application
+info.app.version=1.0.0

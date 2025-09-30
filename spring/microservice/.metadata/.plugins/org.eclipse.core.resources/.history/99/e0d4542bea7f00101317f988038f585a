@@ -1,0 +1,5 @@
+package com.cognizant.cards.entity;
+
+public class Cards {
+
+}

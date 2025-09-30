@@ -1,0 +1,29 @@
+package com.cognizant.client;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.cognizant.resturant.dto.OrderResponseDTO;
+import com.cognizant.resturant.entity.Order;
+import com.cognizant.resturant.mapper.OrderMapper;
+import com.cognizant.resturant.repositry.OrderRepositry;
+
+@Service
+public class RestaurantServiceClient {
+
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	public OrderResponseDTO getOrderById(String orderId) {
+		Optional<Order> order = orderRepositry.findById(orderId);
+		return order.map(OrderMapper::toDto).orElse(null);
+	}
+	
+	public OrderResponseDTO createOrder(OrderResponseDTO dto) {
+		Order order = OrderMapper.toEntity(dto);
+		return OrderMapper.toDto(orderRepositry.save(order));
+	}
+}

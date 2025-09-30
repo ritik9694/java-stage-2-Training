@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<!-- value as an attribute -->
+	<bean id="user1" class="com.cognizant.spring.core.beans.Users" init-method="Init1" destroy-method="Destroy">
+	  <property name="firstName" value="ritik"/>
+	  <property name="lastName" value="kumar"/>
+	</bean>
+	
+	
+	
+	<bean id="user2" class="com.cognizant.spring.core.beans.Users" init-method="Init2" destroy-method="Destroy">
+	 <constructor-arg value="ritik"/>
+	 <constructor-arg value="kumar"/>
+	</bean>
+	
+	<!-- value as an attribute -->
+	<!-- <bean id="user3" class="com.cognizant.spring.core.beans.Users" init-method="Init3" destroy-method="Destroy">
+	  <property name="firstName" value="ritik"/>
+	  <property name="lastName" value="kumar"/>
+	</bean> -->
+	
+</beans>

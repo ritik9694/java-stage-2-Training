@@ -1,0 +1,9 @@
+package com.cognizant.book.service;
+
+import com.cognizant.book.entity.Book;
+
+public interface BookService {
+
+	public boolean saveBook(Book newBook);
+	public void findBookById(Integer bookId);
+}

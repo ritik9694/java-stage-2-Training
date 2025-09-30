@@ -1,0 +1,7 @@
+package com.cognizant.book.service.impl;
+
+import com.cognizant.book.service.BookService;
+
+public class BookServiceImpl implements BookService {
+
+}

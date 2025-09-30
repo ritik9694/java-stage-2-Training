@@ -1,0 +1,5 @@
+package com.cognizant.book.controller;
+
+public class BookRepository {
+
+}

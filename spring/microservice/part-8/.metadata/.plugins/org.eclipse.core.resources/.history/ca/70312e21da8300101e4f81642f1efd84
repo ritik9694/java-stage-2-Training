@@ -1,0 +1,7 @@
+spring.application.name=circuit.breaker
+
+message=Welcome to Cognizant
+contactDetails.name=Sunil Joseph - Developer
+contactDetails.email=sunil@cognizant.com
+onCallSupport[0]=(40) 238-41700
+onCallSupport[1]=(40) 238-41701

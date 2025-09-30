@@ -1,0 +1,64 @@
+package com.cognizant.cards.controler;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.cognizant.cards.dto.CardsDto;
+import com.cognizant.cards.dto.ResponseDto;
+import com.cognizant.cards.service.CardsServiceImpl;
+
+@RestController
+@RequestMapping(path = "/api")
+public class CardsController {
+
+	@Autowired
+	private CardsServiceImpl cardsServiceImpl;
+	
+	@PostMapping("/created")
+	public ResponseEntity<ResponseDto> createCards(@RequestParam String mobileNumber){
+		cardsServiceImpl.createCard(mobileNumber);
+		return ResponseEntity.status(HttpStatus.CREATED)
+				             .body(new ResponseDto("201","Card created SuccessFully !!"));
+	}
+	
+	@GetMapping("/fetch")
+	public ResponseEntity<CardsDto> fetchCardDetails(@RequestParam String mobileNumber){
+		CardsDto cardDto=cardsServiceImpl.fetchCard(mobileNumber);
+		return ResponseEntity.status(HttpStatus.OK).body(cardDto);
+		
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<ResponseDto> updateCardsDetails(@RequestParam CardsDto cardsDto){
+		boolean updatedCard=cardsServiceImpl.updateDetails(cardsDto);
+		if(updatedCard) {
+			return ResponseEntity.status(HttpStatus.OK)
+                    .body(new ResponseDto("200", "Request proceed successfully !!!"));
+		}
+		return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+				              .body(new ResponseDto("417", "Update operation faild.Please try again or connect with team"));
+	}
+	
+	@DeleteMapping("/delete")
+	public ResponseEntity<ResponseDto> deleteCardDetails(@RequestParam String mobileNumber){
+		
+		boolean isDeleted = cardsServiceImpl.deleteDetails(mobileNumber);
+        if(isDeleted) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ResponseDto("200", "Request Processed Successfully !!"));
+        }else{
+            return ResponseEntity
+                    .badRequest().build();
+        }
+	}
+}

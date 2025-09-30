@@ -1,0 +1,5 @@
+package com.cognizant.cards.audit;
+
+public class AuditAwareImpl {
+
+}

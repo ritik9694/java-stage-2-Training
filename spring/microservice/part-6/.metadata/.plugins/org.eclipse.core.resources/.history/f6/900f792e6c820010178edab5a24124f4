@@ -1,0 +1,16 @@
+spring.application.name=gatewayserver
+server.port= 8072
+
+eureka.instance.preferIpAddress= true
+eureka.client.registerWithEureka= true
+eureka.client.fetchRegistry= true
+eureka.client.serviceUrl.defaultZone= http://localhost:8761/eureka/
+
+spring.cloud.discovery.client.composite-indicator.enabled= true
+management.endpoints.web.exposure.include=*
+management.info.env.enabled= true
+management.endpoint.gateway.access=read-only
+
+#spring.cloud.gateway.routes[0].id=test_route
+#spring.cloud.gateway.routes[0].uri=http://httpbin.org:80
+#spring.cloud.gateway.routes[0].predicates[0]=Path=/test/**

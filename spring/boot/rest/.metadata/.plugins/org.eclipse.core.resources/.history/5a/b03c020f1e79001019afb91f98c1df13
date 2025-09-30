@@ -1,0 +1,11 @@
+package com.cognizant.boot.rest.entity;
+
+import lombok.Data;
+
+@Data
+public class Book {
+
+	public int bookId;
+	public String bookTitle;
+	public Float bookPrice;
+}

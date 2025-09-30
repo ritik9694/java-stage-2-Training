@@ -1,0 +1,8 @@
+package com.cognizant.gatewayserver.controller;
+
+import com.cognizant.gatewayserver.dto.AccountsContactInfoDto;
+
+public class CustomerController {
+
+	private AccountsContactInfoDto accountsContactInfoDto;
+}

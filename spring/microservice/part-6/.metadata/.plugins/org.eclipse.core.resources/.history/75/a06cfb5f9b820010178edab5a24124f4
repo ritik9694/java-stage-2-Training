@@ -1,0 +1,24 @@
+spring.application.name=cards
+# Server Configuration
+server.port=9090
+
+# H2 Database Configuration
+spring.datasource.url=jdbc:h2:mem:cardsdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=admin
+spring.datasource.password=1234
+
+# H2 Console
+spring.h2.console.enabled=true
+
+# JPA Configuration
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+eureka.instance.preferIpAddress: true
+eureka.instance.prefer-ip-address: true
+eureka.client.fetchRegistry: true
+eureka.client.registerWithEureka: true
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/

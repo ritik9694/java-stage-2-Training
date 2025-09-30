@@ -1,0 +1,32 @@
+package com.cognizant.irctc.service;
+
+import com.cognizant.irctc.entities.Ticket;
+import com.cognizant.irctc.models.Passenger;
+
+public class TicketServicesImpl implements TicketServices {
+
+	@Override
+	public Ticket newBooking(Passenger passenger) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ticket getTicketByPnr(String pnr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ticket updateTicket(String pnr, Passenger passenger) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean cancelTicket(String pnr) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

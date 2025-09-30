@@ -1,0 +1,39 @@
+package com.cognizant.book.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.cognizant.book.entity.Book;
+import com.cognizant.book.repository.BookRepository;
+import com.cognizant.book.service.BookService;
+
+@Service
+public class BookServiceImpl implements BookService {
+
+	private BookRepository bookRepository;
+	
+	@Override
+	public boolean saveBook(Book newBook) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public void findBookById(Integer bookId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public List<Book> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public boolean deleteById(Integer bookId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

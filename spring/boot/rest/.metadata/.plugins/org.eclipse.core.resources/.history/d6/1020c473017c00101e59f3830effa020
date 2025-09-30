@@ -1,0 +1,28 @@
+package com.cognizant.book.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cognizant.book.entity.Book;
+import com.cognizant.book.service.impl.BookServiceImpl;
+
+@RestController
+@RequestMapping("/book")
+public class BookController {
+
+	@Autowired
+	private BookServiceImpl bookServiceImpl;
+	
+	@PostMapping("/save")
+	public ResponseEntity<Book> saveBook(@RequestBody Book book){
+		boolean addbook=bookServiceImpl.saveBook(book);
+		if(addbook) {
+			return ResponseEntity.ok().body("book saved");
+		}
+		return ResponseEntity.badRequest().body("book Not saved");
+	}
+}

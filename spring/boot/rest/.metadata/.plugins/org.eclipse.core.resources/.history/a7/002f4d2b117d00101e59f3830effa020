@@ -1,0 +1,5 @@
+package com.cognizant.irctc.exception;
+
+public class TicketNotFoundException {
+
+}

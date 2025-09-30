@@ -1,0 +1,41 @@
+package com.cognizant.security.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.security.model.Users;
+import com.cognizant.security.repo.MyUserRepositry;
+
+@Service
+public class UsersService {
+
+	@Autowired
+	private MyUserRepositry myUserRepositry;
+	
+	@Autowired
+	AuthenticationManager authManager;
+	
+	@Autowired
+	JWTService jwtService;
+	
+	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder( 12);
+	
+	public Users register(Users users) {
+		users.setPassword(encoder.encode(users.getPassword()));
+		return myUserRepositry.save(users);
+	}
+
+	public String verify(Users users) {
+		Authentication authentication = 
+				authManager.authenticate(new UsernamePasswordAuthenticationToken(users.getUsername(), users.getPassword()));
+		
+		if(authentication.isAuthenticated()) {
+			return generateToken();
+		}
+		return "Failed to login";
+	}
+}

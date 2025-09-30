@@ -1,0 +1,7 @@
+package com.cognizant.loans.service;
+
+import java.io.Serializable;
+
+public class LoansServiceImp implements Serializable {
+
+}

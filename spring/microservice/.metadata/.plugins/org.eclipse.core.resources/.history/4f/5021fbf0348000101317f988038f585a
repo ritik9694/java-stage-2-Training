@@ -1,0 +1,13 @@
+package com.cognizant.cards.dto;
+
+import java.time.LocalDateTime;
+
+import org.springframework.http.HttpStatus;
+
+public class ErrorResponseDto {
+
+	public ErrorResponseDto(String description, HttpStatus internalServerError, String message, LocalDateTime now) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.cognizant.accounts.dto;
+
+public class CustomerDto {
+
+}

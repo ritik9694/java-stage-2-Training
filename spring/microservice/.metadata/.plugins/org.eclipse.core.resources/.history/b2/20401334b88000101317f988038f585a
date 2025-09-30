@@ -1,0 +1,11 @@
+package com.cognizant.loans.repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.cognizant.loans.entity.Loans;
+
+@Repository
+public interface LoansRepositry extends JpaRepository<Loans, Long> {
+
+}

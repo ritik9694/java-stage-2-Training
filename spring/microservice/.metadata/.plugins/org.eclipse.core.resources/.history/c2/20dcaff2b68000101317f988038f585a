@@ -1,0 +1,12 @@
+package com.cognizant.loans.mapper;
+
+import com.cognizant.loans.dto.LoansDto;
+import com.cognizant.loans.entity.Loans;
+
+public class LoansMapper {
+
+	public static LoansDto mapsToLoansDto(Loans loans,LoansDto loansDto) {
+		
+		loansDto.setAmountPaid(loans.);
+	}
+}

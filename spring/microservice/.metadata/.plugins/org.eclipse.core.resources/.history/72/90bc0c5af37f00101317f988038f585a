@@ -1,0 +1,84 @@
+package com.cognizant.cards.service;
+
+import java.util.Optional;
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.cards.dto.CardsDto;
+import com.cognizant.cards.entity.Cards;
+import com.cognizant.cards.repository.CardsRepository;
+
+
+@Service
+public class CardsServiceImpl implements CardsService {
+
+	@Autowired
+	private CardsRepository cardsRepository;
+	
+	@Override
+	public String createCard(String mobileNumber) {
+		Optional<Cards> cardsOpt=cardsRepository.findByMobileNumber(mobileNumber);
+		if(cardsOpt.isPresent()) {
+			return "card Already exist with given mobile number";
+		}
+		cardsRepository.save(createNewCard(mobileNumber));
+		return mobileNumber;
+
+	}
+
+	private Cards createNewCard(String mobileNumber) {
+		Cards newCards = new Cards();
+		long randomCardNumber = 100000000000L + new Random().nextInt(900000000);
+		newCards.setCardNumber(Long.toString(randomCardNumber));
+		newCards.setMobileNumber(mobileNumber);
+		newCards.setAmountUsed(0);
+		newCards.setAvailableAmount(187876);
+		newCards.setCardType("credit type");
+		newCards.setTotalLimit(187876);
+		return newCards;
+	}
+
+	
+	@Override
+	public CardsDto fetchCard(String mobileNumber) {
+		Optional<Cards> cardsOpt=cardsRepository.findByMobileNumber(mobileNumber);
+		if(cardsOpt.isPresent()) {
+			Cards cards=cardsOpt.get();
+			CardsDto cardsDto = new CardsDto();
+
+			cardsDto.setCardNumber(cards.getCardNumber());
+			cardsDto.setCardType(cards.getCardType());
+			cardsDto.setTotalLimit(cards.getTotalLimit());
+			cardsDto.setAvailableAmount(cards.getAvailableAmount());
+			cardsDto.setAmountUsed(cards.getAmountUsed());
+        return cardsDto;
+
+		}
+		return null;
+	}
+
+	@Override
+	public boolean updateDetails(CardsDto cardsDto) {
+		Optional<Cards> cardsOpt=cardsRepository.findByMobileNumber(cardsDto.getMobileNumber());
+		if(cardsOpt.isPresent()) {
+			Cards card = cardsOpt.get();
+			card.setAmountUsed(cardsDto.getAmountUsed());
+
+           card.setAvailableAmount(cardsDto.getAvailableAmount());
+           card.setCardType(cardsDto.getCardType());
+           card.setTotalLimit(cardsDto.getTotalLimit());
+           cardsRepository.save(card);
+
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteDetails(String mobileNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

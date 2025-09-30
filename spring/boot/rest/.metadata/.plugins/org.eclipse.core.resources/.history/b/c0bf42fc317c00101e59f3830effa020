@@ -1,0 +1,14 @@
+package com.cognizant.book.exception;
+
+public class BookNotFoundException extends RuntimeException {
+	
+	public BookNotFoundException() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public BookNotFoundException() {
+		super();
+	}
+	
+
+}

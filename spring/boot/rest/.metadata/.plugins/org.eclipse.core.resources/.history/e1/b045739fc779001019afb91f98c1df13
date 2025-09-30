@@ -1,0 +1,42 @@
+package com.cognizant.boot.rest.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.cognizant.boot.rest.entity.Book;
+
+@Repository
+public class BookRepository {
+
+    private List<Book> books = new ArrayList<>();
+
+    public BookRepository() {
+        books.add(new Book(1001, "Java Reference", 575.50f));
+        books.add(new Book(1002, "Python Reference", 750f));
+        books.add(new Book(1003, "Microservices Reference", 875.50f));
+        books.add(new Book(1004, "Spring with Spring Boot Reference", 1275.50f));
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public boolean saveBook(Book book) {
+        return books.add(book);
+    }
+
+    public Book findBookById(Integer bookId) {
+        for (Book book : books) {
+            if (book.getBookId() != null && book.getBookId().equals(bookId)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public boolean deleteBookById(Integer bookId) {
+        return books.removeIf(book -> book.getBookId() != null && book.getBookId().equals(bookId));
+    }
+}

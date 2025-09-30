@@ -1,0 +1,5 @@
+package com.cognizant.accounts.mapper;
+
+public class CustomerMapper {
+
+}

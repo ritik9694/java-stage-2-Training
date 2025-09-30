@@ -1,0 +1,20 @@
+package com.cognizant.accounts.service.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.cognizant.cards.dto.CardsDto;
+
+@FeignClient("cards")
+public class CardsFeignClient {
+
+	@GetMapping("/fetch")
+	public ResponseEntity<CardsDto> fetchCardDetails(@RequestParam String mobileNumber){
+		CardsDto cardDto=cardsServiceImpl.fetchCard(mobileNumber);
+		return ResponseEntity.status(HttpStatus.OK).body(cardDto);
+		
+	}
+}

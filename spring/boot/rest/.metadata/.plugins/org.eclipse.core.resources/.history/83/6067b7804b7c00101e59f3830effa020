@@ -1,0 +1,41 @@
+package com.cognizant.irctc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.irctc.entities.Ticket;
+import com.cognizant.irctc.models.Passenger;
+import com.cognizant.irctc.repository.TicketRepository;
+
+@Service
+public class TicketServicesImpl implements TicketServices {
+
+	@Autowired
+	private TicketRepository ticketRepo;
+	
+	@Override
+	public Ticket newBooking(Passenger passenger) {
+		Ticket ticket = new Ticket();
+		Ticket bookedTicket=ticketRepo.save(ticket);
+		return bookedTicket;
+	}
+
+	@Override
+	public Ticket getTicketByPnr(String pnr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ticket updateTicket(String pnr, Passenger passenger) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean cancelTicket(String pnr) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

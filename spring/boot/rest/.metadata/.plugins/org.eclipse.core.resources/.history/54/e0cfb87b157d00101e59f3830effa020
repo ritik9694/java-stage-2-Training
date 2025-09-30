@@ -1,0 +1,5 @@
+package com.cognizant.irctc.controller.adapter;
+
+public class LocalDateAdapter {
+
+}

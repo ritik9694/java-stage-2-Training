@@ -1,0 +1,15 @@
+package com.cognizant.book.service;
+
+import java.util.List;
+
+import com.cognizant.book.entity.Book;
+
+public interface BookService {
+
+	public Book saveBook(Book newBook);
+	public Book getBookById(int bookId);
+	public List<Book> getAll();
+	public boolean deleteById(int bookId);
+	public boolean updateBook(int bookId, Book updateBook);
+	
+}

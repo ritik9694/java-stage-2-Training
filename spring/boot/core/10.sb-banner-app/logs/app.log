@@ -1,0 +1,16 @@
+2025-08-11T14:53:14.854+05:30  INFO 11056 --- [10.sb-banner-app] [main] o.s.boot.SpringApplication               : 
+
+
+_________                      .__                       __    
+\_   ___ \  ____   ____   ____ |__|____________    _____/  |_  
+/    \  \/ /  _ \ / ___\ /    \|  \___   /\__  \  /    \   __\ 
+\     \___(  <_> ) /_/  >   |  \  |/    /  / __ \|   |  \  |   
+ \______  /\____/\___  /|___|  /__/_____ \(____  /___|  /__|   
+        \/      /_____/      \/         \/     \/     \/       
+        
+        
+        
+
+2025-08-11T14:53:14.924+05:30  INFO 11056 --- [10.sb-banner-app] [main] com.cognizant.boot.Application           : Starting Application using Java 21.0.6 with PID 11056 (C:\Users\2430856\OneDrive - Cognizant\Desktop\10.sb-banner-app\target\classes started by 2430856 in C:\Users\2430856\OneDrive - Cognizant\Desktop\10.sb-banner-app)
+2025-08-11T14:53:14.925+05:30  INFO 11056 --- [10.sb-banner-app] [main] com.cognizant.boot.Application           : No active profile set, falling back to 1 default profile: "default"
+2025-08-11T14:53:15.918+05:30  INFO 11056 --- [10.sb-banner-app] [main] com.cognizant.boot.Application           : Started Application in 1.727 seconds (process running for 2.775)

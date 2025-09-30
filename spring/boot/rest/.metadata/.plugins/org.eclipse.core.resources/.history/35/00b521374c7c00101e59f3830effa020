@@ -1,0 +1,12 @@
+package com.cognizant.irctc.utility;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class PNRGenerator {
+
+	UUID uuid = UUID.randomUUID();
+	String pnr = uuid.toString().replaceAll("-","").substring(0,7).toUpperCase();
+	
+	return pnr;
+}

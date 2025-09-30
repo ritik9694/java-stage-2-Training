@@ -1,0 +1,5 @@
+package com.cognizant.irctc.models;
+
+public class ApiError {
+
+}

@@ -1,0 +1,7 @@
+package com.cognizant.loans.repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LoansRepositry extends JpaRepository<T, ID> {
+
+}

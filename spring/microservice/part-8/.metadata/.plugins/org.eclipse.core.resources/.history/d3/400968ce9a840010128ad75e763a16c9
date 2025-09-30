@@ -1,0 +1,5 @@
+package com.cognizant.accounts.config;
+
+public class GatewayConfig {
+
+}

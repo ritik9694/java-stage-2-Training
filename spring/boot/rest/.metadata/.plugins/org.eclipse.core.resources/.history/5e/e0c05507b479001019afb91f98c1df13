@@ -1,0 +1,19 @@
+package com.cognizant.boot.rest.repository;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.cognizant.boot.rest.model.Book;
+
+@Repository
+public class BookRepository {
+
+	private void addBook() {
+		List<Book> books = new ArrayList<>();
+		Book bk1=books.add(1,"java Book", 234);
+		
+	}
+}

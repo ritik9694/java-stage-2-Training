@@ -1,0 +1,22 @@
+package com.cognizant.security.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.security.model.Users;
+import com.cognizant.security.repo.MyUserRepositry;
+
+@Service
+public class UsersService {
+
+	@Autowired
+	private MyUserRepositry myUserRepositry;
+	
+	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder( 12);
+	
+	public Users register(Users users) {
+		users.setPassword(encoder.encode(users.getPassword()));
+		return myUserRepositry.save(users);
+	}
+}

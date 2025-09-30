@@ -1,0 +1,81 @@
+package com.cognizant.book.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.book.entity.Book;
+import com.cognizant.book.exception.BookNotFoundException;
+import com.cognizant.book.repository.BookRepository;
+import com.cognizant.book.service.BookService;
+
+@Service
+public class BookServiceImpl implements BookService {
+
+	@Autowired
+	private BookRepository bookRepository;
+	
+	@Override
+	public Book saveBook(Book newBook) {
+		Book book = new Book();
+		
+		book.setBookId(book.getBookId());
+		book.setBookTitle(book.getBookTitle());
+		book.setBookAuthor(book.getBookAuthor());
+		book.setBookPrice(book.getBookPrice());
+		book.setLocalDate(book.getLocalDate());
+		
+		Book bk=bookRepository.save(newBook);
+		
+		
+		throw new BookNotFoundException();
+		//return bk;
+	}
+	
+	@Override
+	public Book getBookById(int bookId) {
+		Optional<Book> findBookId=bookRepository.findById(bookId);
+		if(findBookId.isPresent()) {
+			return findBookId.get();
+		}
+		//return null;
+		throw new BookNotFoundException("Book not updated by bookId"+bookId);
+		
+	}
+	
+	@Override
+	public List<Book> getAll() {
+		return bookRepository.findAll();
+	}
+	
+	@Override
+	public boolean deleteById(int bookId) {
+		boolean existBook=bookRepository.existsById(bookId);
+		if(existBook) {
+			bookRepository.deleteById(bookId);
+			return true;
+		}
+		throw new BookNotFoundException("no book found for book id"+bookId);
+	}
+	
+	@Override
+	public boolean updateBook(int bookId, Book updateBook) {
+		Optional<Book> existingBookOpt=bookRepository.findById(bookId);
+		if(existingBookOpt.isPresent()) {
+			Book existingBook =existingBookOpt.get();
+			existingBook.setBookTitle(updateBook.getBookTitle());
+			existingBook.setBookAuthor(updateBook.getBookAuthor());
+		    existingBook.setBookPrice(updateBook.getBookPrice());
+		    existingBook.setLocalDate(updateBook.getLocalDate());
+		    
+		    bookRepository.save(existingBook);
+		    return true;
+		}
+		return false;
+	}
+
+
+}

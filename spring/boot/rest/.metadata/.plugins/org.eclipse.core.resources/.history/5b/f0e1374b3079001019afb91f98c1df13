@@ -1,0 +1,38 @@
+package com.cognizant.boot.rest.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cognizant.boot.rest.entity.Book;
+import com.cognizant.boot.rest.service.BookServiceImpl;
+
+@RestController
+@RequestMapping("/book")
+public class BookController {
+	@Autowired
+	private BookServiceImpl bookServiceImpl;
+	
+	@GetMapping(path = "/search/{bkid}",
+			    produces = {"application/json","application/xml"})
+	public ResponseEntity<?> getAllBookById(@PathVariable Integer bkid){
+		Book searchedBook=bookServiceImpl.findBookById(bkid);
+		if(searchedBook != null) {
+			return ResponseEntity.ok().body(searchedBook);
+		}
+		return ResponseEntity.badRequest().body("no matching book for book id: " +bkid);
+	}
+	
+	@GetMapping(path = "/all",
+			produces = {"application/json","application/xml"})
+	public ResponseEntity<?> getAllBooks(){
+		List<Book> books = bookServiceImpl.findAllBook();
+		return ResponseEntity.ok().body(books);
+	}
+}

@@ -1,0 +1,8 @@
+package com.cognizant.boot.rest.model;
+
+public class Book {
+
+	private int bookId;
+	private String bookTitle;
+	private String bookPrice;
+}

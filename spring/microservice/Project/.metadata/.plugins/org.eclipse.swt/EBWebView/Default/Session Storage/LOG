@@ -1,0 +1,4 @@
+2025/08/29-17:35:14.414 6360 Reusing MANIFEST C:\java stage 2\spring\microservice\Project\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/MANIFEST-000001
+2025/08/29-17:35:14.428 6360 Recovering log #3
+2025/08/29-17:35:14.429 6360 (ignoring error) C:\java stage 2\spring\microservice\Project\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/000003.log: dropping 729 bytes; Corruption: checksum mismatch
+2025/08/29-17:35:14.436 6360 Reusing old log C:\java stage 2\spring\microservice\Project\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/000003.log 

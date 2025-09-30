@@ -1,0 +1,5 @@
+package com.cognizant.loans.entity;
+
+public class BaseEntity {
+
+}

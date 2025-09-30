@@ -1,0 +1,34 @@
+package com.cognizant.accounts.service;
+
+import org.springframework.stereotype.Service;
+
+import com.cognizant.accounts.dto.CustomerDetailsDto;
+import com.cognizant.accounts.entity.Customer;
+import com.cognizant.accounts.exception.ResourceNotFoundException;
+import com.cognizant.accounts.repositry.AccountsRepositry;
+import com.cognizant.accounts.repositry.CustomerRepositry;
+import com.cognizant.accounts.service.client.CardsFeignClient;
+import com.cognizant.accounts.service.client.LoansFeignClient;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class CustomersDetailsServiceImpl implements CustomersDetailsService {
+
+	private AccountsRepositry accountsRepositry;
+	private CustomerRepositry customerRepositry;
+	
+	private CardsFeignClient cardsFeignClient;
+	private LoansFeignClient loansFeignClient;
+	
+	
+	@Override
+	public CustomerDetailsDto fetchCustomerDetails(String mobileNumber) {
+		Customer customer=customerRepositry.findByMobileNumber(mobileNumber).orElseThrow(
+				() -> new ResourceNotFoundException("Customer","mobileNumber", mobileNumber)
+				);
+		return null;
+	}
+
+}

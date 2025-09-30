@@ -1,0 +1,19 @@
+spring.application.name=accounts
+
+eureka.instance.preferIpAddress: true
+eureka.instance.prefer-ip-address: true
+eureka.client.fetchRegistry: true
+eureka.client.registerWithEureka: true
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+info.app.name=accounts
+info.app.description=CTS Bank Accounts Application
+info.app.version=1.0.0
+
+management.endpoints.web.exposure.include=*
+management.info.env.enabled=true
+
+resilience4j.circuitbreaker.configs.default.slidingWindowSize= 10
+resilience4j.circuitbreaker.configs.default.failureRateThreshold= 50
+resilience4j.circuitbreaker.configs.default.waitDurationInOpenState: 10000
+resilience4j.circuitbreaker.configs.default.permittedNumberOfCallsInHalfOpenState= 2

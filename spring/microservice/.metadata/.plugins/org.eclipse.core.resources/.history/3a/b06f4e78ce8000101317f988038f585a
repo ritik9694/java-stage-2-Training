@@ -1,0 +1,5 @@
+package com.cognizant.loans.controller;
+
+public class LoansController {
+
+}

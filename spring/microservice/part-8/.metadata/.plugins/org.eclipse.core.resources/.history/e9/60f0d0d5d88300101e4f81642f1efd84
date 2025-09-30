@@ -1,0 +1,8 @@
+package com.cognizant.boot.dto;
+
+public class AccountContactInfoDto {
+
+	public record AccountContactInfo(String message,Map<String,String>contactDetails,List<String>onCallSupport) {
+		
+	}
+}

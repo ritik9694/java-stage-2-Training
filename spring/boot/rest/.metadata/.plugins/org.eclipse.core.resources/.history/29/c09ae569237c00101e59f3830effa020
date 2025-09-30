@@ -1,0 +1,58 @@
+package com.cognizant.book.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.book.entity.Book;
+import com.cognizant.book.repository.BookRepository;
+import com.cognizant.book.service.BookService;
+
+@Service
+public class BookServiceImpl implements BookService {
+
+	@Autowired
+	private BookRepository bookRepository;
+	
+	@Override
+	public Book saveBook(Book newBook) {
+		Book book = new Book();
+		
+		book.setBookId(book.getBookId());
+		book.setBookTitle(book.getBookTitle());
+		book.setBookAuthor(book.getBookAuthor());
+		book.setBookPrice(book.getBookPrice());
+		book.setLocalDate(book.getLocalDate());
+		
+		Book bk=bookRepository.save(newBook);
+		return bk;
+	}
+	
+	@Override
+	public Book getBookById(Book bookId) {
+		Optional<Book> findBookId=bookRepository.findById(null);
+		if(findBookId.isPresent()) {
+			return findBookId.get();
+		}
+		return null;
+		
+	}
+	
+	@Override
+	public List<Book> findAll() {
+		return bookRepository.findAll();
+	}
+	
+	@Override
+	public boolean deleteById(Integer bookId) {
+		boolean existBook=bookRepository.existsById(bookId);
+		if(existBook) {
+			bookRepository.deleteById(bookId);
+			return true;
+		}
+		return false;
+	}
+}

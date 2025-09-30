@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=0.1-cards/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cognizant.cards.service{CardsService.java[CardsService" modifiers="513" timestamp="1755950717352"/>
+    <typeInfo handle="=0.2-loans/C:\/Users\/2430856\/Downloads\/sts-4.30.0.RELEASE\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.6.v20250130-0529\/jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/21\/docs\/api\/=/=/maven.pomderived=/true=/&lt;java.io(Serializable.class[Serializable" modifiers="1537" timestamp="1751906037551"/>
+    <typeInfo handle="=0.2-loans/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cognizant.loans.service{LoansService.java[LoansService" modifiers="513" timestamp="1756019245881"/>
+    <typeInfo handle="=0.1-cards/C:\/Users\/2430856\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/3.5.1\/spring-data-jpa-3.5.1.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/3.5.1=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1755928536901"/>
+    <typeInfo handle="=0.3-accounts/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cognizant.accounts.service{AccountsService.java[AccountsService" modifiers="513" timestamp="1756120222477"/>
+</typeInfoHistroy>

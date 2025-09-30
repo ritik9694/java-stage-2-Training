@@ -1,0 +1,16 @@
+package com.cognizant.boot.rest.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
+public class Book {
+
+	public int bookId;
+	public String bookTitle;
+	public Float bookPrice;
+}

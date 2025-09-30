@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.AuditorAware"/>
+    <fullyQualifiedTypeName name="com.cognizant.cards.entity.BaseEntity"/>
+</qualifiedTypeNameHistroy>

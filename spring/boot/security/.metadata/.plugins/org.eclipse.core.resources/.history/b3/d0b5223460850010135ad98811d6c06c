@@ -1,0 +1,66 @@
+package com.cognizant.security.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
+import org.springframework.security.web.DefaultSecurityFilterChain;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfiguration {
+
+	@Autowired
+	private DataSource dataSource;
+
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
+		http.csrf(csrf -> csrf.disable());
+		// http.sessionManagement(session ->
+		// session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+		http.authorizeHttpRequests(request -> request.anyRequest().authenticated());
+		http.formLogin(Customizer.withDefaults()); ///form login for browser
+		http.httpBasic(Customizer.withDefaults()); ///----->for postman to not show login page in html
+		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+		return http.build();
+	}
+
+	@Bean
+	public UserDetailsService userDetailsService() {
+		UserDetails user1 = User.withUsername("admin").password("123")
+				            .passwordEncoder(pwd -> encoder.encode(pwd))
+				            .roles("admin","manager").build();
+		UserDetails user2 = User.withUsername("hrithik").password("1234")
+				            .passwordEncoder(pwd -> encoder.encode(pwd))
+				            .roles("user").build();
+
+		UserDetailsManager userDtlsMgr = new JdbcUserDetailsManager(dataSource);
+		userDtlsMgr.createUser(user1);
+		userDtlsMgr.createUser(user2);
+		
+		return userDtlsMgr;
+	} // -->this is not valid to work with database
+
+	// un-authenticatedobj(Authentication obj) --> Authentication Provider -->
+	// Authentication Obj (Authenticated obj)
+
+}

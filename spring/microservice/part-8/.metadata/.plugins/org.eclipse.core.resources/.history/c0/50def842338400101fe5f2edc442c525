@@ -1,0 +1,22 @@
+spring.application.name=accounts
+
+eureka.instance.preferIpAddress: true
+eureka.instance.prefer-ip-address: true
+eureka.client.fetchRegistry: true
+eureka.client.registerWithEureka: true
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+info.app.name=accounts
+info.app.description=CTS Bank Accounts Application
+info.app.version=1.0.0
+
+accounts.message=Welcome to Cognizant Bank accounts related APIs
+accounts.contactDetails.name=hrithik - Developer
+accounts.contactDetails.email=hrithik@cognizant.com
+accounts.onCallSupport[0]=(40) 238-41700
+accounts.onCallSupport[1]=(40) 238-41701
+
+resilience4j.circuitbreaker.configs.default.slidingWindowSize=10
+resilience4j.circuitbreaker.configs.default.permittedNumberOfCallsInHalfOpenState=2
+resilience4j.circuitbreaker.configs.default.failureRateThreshold=50
+resilience4j.circuitbreaker.configs.default.waitDurationInOpenState=10000

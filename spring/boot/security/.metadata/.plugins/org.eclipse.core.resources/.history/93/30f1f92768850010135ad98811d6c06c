@@ -1,0 +1,14 @@
+package com.cognizant.security.model;
+
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Users {
+	@Id
+	private int id;
+	private String username;
+	private String password;
+
+}

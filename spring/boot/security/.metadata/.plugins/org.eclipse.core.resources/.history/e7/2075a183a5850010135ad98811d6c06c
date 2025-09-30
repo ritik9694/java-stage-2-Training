@@ -1,0 +1,25 @@
+package com.cognizant.security.service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import io.jsonwebtoken.Jwts;
+
+@Service
+public class JWTService {
+
+	public String generateToken(String username) {
+		//different user different toke
+		//1st generate token
+		Map<String, Object> claims = new HashMap<>();
+		
+		return Jwts.builder()
+				.setClaims()
+				.addClaims(claims)
+				.subject()
+		return null;
+	}
+
+}

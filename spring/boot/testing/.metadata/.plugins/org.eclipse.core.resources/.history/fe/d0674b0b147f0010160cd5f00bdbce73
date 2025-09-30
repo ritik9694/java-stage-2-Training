@@ -1,0 +1,12 @@
+package com.cognizant.app.service;
+
+public class FindLargest {
+
+	public int findLargest(int nums[]){
+		int lar = 0;
+		for(int x : nums) {
+			lar = x;
+		}
+		return lar;
+	}
+}

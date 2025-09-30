@@ -1,0 +1,60 @@
+package com.cognizant.boot.rest.servce.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cognizant.boot.rest.model.Book;
+import com.cognizant.boot.rest.repository.BookRepository;
+import com.cognizant.boot.rest.servce.BookService;
+
+@Service
+public class BookServiceImpl implements BookService {
+
+	
+	private BookRepository bookRepository;
+	private List<Book> books;
+	
+	@Autowired
+	public BookServiceImpl(BookRepository bookRepository, List<Book> books) {
+		super();
+		this.bookRepository = bookRepository;
+		this.books = books;
+	}
+
+	@Override
+	public boolean saveBooks(Book newBook) {
+		 Book book=books.stream()
+				         .filter(bk -> bk.equals(newBook.getBookId()))
+				         .findAny()
+				         .orElse(null);
+		 if(book == null) {
+			 books.add(newBook);
+			 return true;
+		 }
+		return false;
+	}
+
+	@Override
+	public Book findBookById(Integer bookId) {
+		Book searchedBook=books.stream()
+				               .filter(bk -> bk.getBookId().equals(bookId))
+				               .findFirst()
+				               .orElse(null);
+		return searchedBook;
+	}
+
+	@Override
+	public List<Book> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteBookById(Integer bookId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.cognizant.loans.service;
+
+import com.cognizant.loans.dto.LoansDto;
+
+public class LoansServiceImp implements LoansService {
+
+	@Override
+	public void createLoan(String mobileNumber) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public LoansDto fetchLoan(String Number) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateLoan(LoansDto loansDto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteLoan(String mobileNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

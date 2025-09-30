@@ -1,0 +1,45 @@
+package com.cognizant.accounts.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.cognizant.accounts.dto.CustomerDto;
+import com.cognizant.accounts.repositry.AccountsRepositry;
+import com.cognizant.accounts.repositry.CustomerRepositry;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class AccountServiceImpl implements AccountsService {
+
+	private AccountsRepositry accountsRepositry;
+	private CustomerRepositry customerRepositry;
+	
+	@Override
+	public void createAccount(CustomerDto customerDto) {
+		Optional<CustomerDto> optionalCust = customerRepositry.findByMobileNumber(customerDto.getMobileNumber());
+		if()
+
+	}
+
+	@Override
+	public CustomerDto fetchAccount(String mobileNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateAccount(CustomerDto customerDto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteAccount(String mobileNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

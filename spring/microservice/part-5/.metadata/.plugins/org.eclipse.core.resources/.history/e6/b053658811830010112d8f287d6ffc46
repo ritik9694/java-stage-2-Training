@@ -1,0 +1,8 @@
+package com.cognizant.accounts.service.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient("loans")
+public class LoansFeignClient {
+
+}

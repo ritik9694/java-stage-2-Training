@@ -1,0 +1,5 @@
+package com.cognizant.boot.rest;
+
+public class DataRestController {
+
+}

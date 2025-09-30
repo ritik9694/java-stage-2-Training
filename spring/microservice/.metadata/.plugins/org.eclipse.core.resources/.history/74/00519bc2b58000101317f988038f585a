@@ -1,0 +1,5 @@
+package com.cognizant.loans.dto;
+
+public class LoansDto {
+
+}

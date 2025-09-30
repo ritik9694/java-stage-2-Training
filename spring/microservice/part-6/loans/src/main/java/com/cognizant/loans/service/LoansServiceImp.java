@@ -1,0 +1,73 @@
+package com.cognizant.loans.service;
+
+
+import java.util.Optional;
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.cognizant.loans.dto.LoansDto;
+import com.cognizant.loans.entity.Loans;
+import com.cognizant.loans.exception.LoanAlreadyExistsException;
+import com.cognizant.loans.exception.ResourceNotFoundException;
+import com.cognizant.loans.mapper.LoansMapper;
+import com.cognizant.loans.repositry.LoansRepositry;
+
+@Service
+public class LoansServiceImp implements LoansService {
+	
+	@Autowired
+	private LoansRepositry loansRepositry;
+
+	@Override
+	public void createLoan(String mobileNumber) {
+		Optional<Loans> optLoans=loansRepositry.findByMobileNumber(mobileNumber);
+		if(optLoans.isPresent()) {
+			throw new LoanAlreadyExistsException("Loan already registered with given mobileNumber "+mobileNumber);
+		}
+
+		loansRepositry.save(createNewLoans(mobileNumber));
+	}
+
+	private Loans createNewLoans(String mobileNumber) {
+		Loans newLoans = new Loans();
+		long randomNumber = 100000000000L + new Random().nextInt(900000000);
+		newLoans.setLoanNumber(Long.toString(randomNumber));
+		newLoans.setMobileNumber(mobileNumber);
+        newLoans.setLoanType("Home Loan");
+        newLoans.setTotalLoan(1_00_000_00);
+        newLoans.setAmountPaid(0);
+        newLoans.setOutstandingAmount(1_00_000_00);
+        return newLoans;
+	}
+
+	@Override
+	public LoansDto fetchLoan(String Number) {
+		Loans loans=loansRepositry.findByMobileNumber(Number).orElseThrow(
+				() -> new ResourceNotFoundException("Loan", "mobileNumber", Number)
+				);
+		return LoansMapper.mapsToLoansDto(loans, new LoansDto());
+	}
+
+	@Override
+	public boolean updateLoan(LoansDto loansDto) {
+		Loans loans=loansRepositry.findByLoanNumber(loansDto.getLoanNumber()).orElseThrow(
+				() -> new ResourceNotFoundException("Loan", "LoanNumber", loansDto.getLoanNumber())
+				);
+		LoansMapper.mapsToLoans(loansDto, loans);
+		loansRepositry.save(loans);
+		return true;
+	}
+
+	@Override
+	public boolean deleteLoan(String mobileNumber) {
+		Loans loans = loansRepositry.findByMobileNumber(mobileNumber).orElseThrow(
+				 () -> new ResourceNotFoundException("Loan", "mobileNumber", mobileNumber)
+				);
+		loansRepositry.deleteById(loans.getLoanId());
+		return true;
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy Project &apos;cards&apos;" description="Copy Project &apos;cards&apos;" destination="C:/java stage 2/spring/microservice" element="/cards" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="0.1-cards" stamp="1755929978744"/>
+</session>

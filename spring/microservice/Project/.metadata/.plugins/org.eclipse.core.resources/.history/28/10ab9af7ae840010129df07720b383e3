@@ -1,0 +1,5 @@
+package com.cognizant.resturant.entity;
+
+public class Order {
+
+}

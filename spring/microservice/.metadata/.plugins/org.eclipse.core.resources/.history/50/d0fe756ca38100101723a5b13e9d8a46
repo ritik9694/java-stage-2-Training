@@ -1,0 +1,9 @@
+package com.cognizant.accounts.repositry;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.cognizant.accounts.entity.Accounts;
+
+public interface AccountsRepositry extends JpaRepository<Accounts, Long> {
+
+}

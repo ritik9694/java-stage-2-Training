@@ -1,0 +1,9 @@
+package com.cognizant.book.entity;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@XmlRootElement
+public class ApiError {
+
+}

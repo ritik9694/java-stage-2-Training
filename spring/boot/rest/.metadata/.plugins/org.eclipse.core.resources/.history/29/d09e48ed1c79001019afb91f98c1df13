@@ -1,0 +1,11 @@
+package com.cognizant.boot.rest.repository;
+
+import org.springframework.stereotype.Repository;
+
+import com.cognizant.boot.rest.entity.Book;
+
+@Repository
+public interface BookRepository {
+
+	public void addBook(Book book);
+}

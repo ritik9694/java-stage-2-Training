@@ -1,0 +1,10 @@
+INDEX VERSION 1.134+C:\java stage 2\spring\boot\testing\.metadata\.plugins\org.eclipse.jdt.core
+2466419592.index
+784102481.index
+2887427413.index
+1865797976.index
+2432767946.index
+4073938952.index
+439672622.index
+1588572842.index
+2583824805.index

@@ -1,0 +1,19 @@
+package com.cognizant.gatewayserver.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.cognizant.gatewayserver.dto.AccountsContactInfoDto;
+
+public class CustomerController {
+
+	@Autowired
+	private AccountsContactInfoDto accountsContactInfoDto;
+	@GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo(){
+    	return ResponseEntity.status(HttpStatus.OK)
+			     .body(accountsContactInfoDto);
+    }
+}

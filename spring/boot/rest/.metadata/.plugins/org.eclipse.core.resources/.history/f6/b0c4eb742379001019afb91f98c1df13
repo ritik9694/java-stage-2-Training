@@ -1,0 +1,5 @@
+package com.cognizant.boot.rest.service;
+
+public class BookServiceImpl implements BookService {
+
+}

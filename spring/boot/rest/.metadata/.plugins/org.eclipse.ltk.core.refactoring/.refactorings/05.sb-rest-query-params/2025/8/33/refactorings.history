@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;05.sb-rest-query-params&apos;&#x0D;&#x0A;- Original project: &apos;05.sb-rest-query-params&apos;&#x0D;&#x0A;- Original element: &apos;com.cognizant.boot.rest.CibilRestController.java&apos;" description="Delete element" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cognizant.boot.rest{CibilRestController.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1755167386740" subPackages="false" version="1.0"/>
+</session>
